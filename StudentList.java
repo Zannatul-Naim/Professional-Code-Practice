@@ -57,6 +57,8 @@ public class StudentList {
 				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				System.out.println(names.length + Constants.WORD_COUNT_MESSAGE);
 				System.out.println(Constants.LOADING_DATA);
+			} else {
+				System.out.println(Constants.INPUT_ERROR_MESSAFE);
 			}
 		}
 
