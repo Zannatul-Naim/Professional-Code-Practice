@@ -54,15 +54,8 @@ public class StudentList {
 				System.out.println(Constants.LOADING_DATA);
 			} else if (args[0].contains(Constants.COUNT_STUDENT)) {
 				System.out.println(Constants.LOADING_DATA);
-				char charArray[] = readLineFromFile(Constants.FILE_NAME).toCharArray();
-				int count = 0;
-				for (char character : charArray) {
-					if (character == ',') {
-						count++;
-					}
-				}
-				count++;
-				System.out.println(count + Constants.WORD_COUNT_MESSAGE);
+				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
+				System.out.println(names.length + Constants.WORD_COUNT_MESSAGE);
 				System.out.println(Constants.LOADING_DATA);
 			}
 		}
