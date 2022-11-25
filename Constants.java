@@ -11,7 +11,7 @@ public abstract class Constants {
     public static String WORD_COUNT_MESSAGE = " word(s) found";
     public static String DATE_TIME_FORMAT = "dd/MM/yyyy-hh:mm:ss a";
     public static String LIST_UPDATE_MESSAGE = "\nList last updated on ";
-    public static String INPUT_ERROR_MESSAFE = "\nUsage: a | r | c | +Student | ?Student\n";
+    public static String USAGE_MESSAGE = "\nUsage: a | r | c | +Student | ?Student\n";
     public static String LOADING_DATA = "Loading data ...";
     public static String DATA_LOADED = "Data Loaded.";
     public static String ADDED_MESSAGE = " is added to students.txt";
