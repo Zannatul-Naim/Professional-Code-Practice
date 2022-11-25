@@ -10,20 +10,20 @@ public class StudentList {
 			System.out.println(Constants.INPUT_ERROR_MESSAFE);
 		} else {
 			if (args[0].equals(Constants.SHOW_ALL)) {
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
 				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				for (String name : names) {
 					System.out.println(name.trim());
 				}
-				System.out.println(Constants.LOAD_DATA);
-			} else if (args[0].equals("r")) {
+				System.out.println(Constants.LOADING_DATA);
+			} else if (args[0].equals(Constants.RANDOM_NUMBER)) {
 				System.out.println(Constants.DATA_LOADED);
 				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				Random random = new Random();
 				System.out.println(names[random.nextInt(4)].trim());
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
 			} else if (args[0].contains(Constants.ADD_STUDENT)) {
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
 				try {
 					BufferedWriter bufferedWriter = writeFile(Constants.FILE_NAME);
 					String newStudent = args[0].substring(1);
@@ -34,24 +34,26 @@ public class StudentList {
 					bufferedWriter.close();
 				} catch (Exception e) {
 				}
-				System.out.println(Constants.LOAD_DATA);
-			} else if (args[0].contains(Constants.FILE_NAME)) {
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
+			} else if (args[0].contains(Constants.FIND_STUDENT)) {
+				System.out.println(Constants.LOADING_DATA);
 				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
-				boolean done = false;
+				int count = 0;
 				String student = args[0].substring(1);
-				for (int index = 0; index < names.length && !done; index++) {
+				for (int index = 0; index < names.length; index++) {
 					if (names[index].trim().equals(student)) {
-						System.out.println(Constants.FOUND_MESSAGE);
-						done = true;
+						count++;
 					}
 				}
-				if (done == false) {
+				if (count == 0) {
 					System.out.println(Constants.NOT_FOUND_MESSAGE);
 				}
-				System.out.println(Constants.LOAD_DATA);
+				else {
+					System.out.println(Constants.FOUND_MESSAGE + Constants.SPACE + count + Constants.TIMES);
+				}
+				System.out.println(Constants.LOADING_DATA);
 			} else if (args[0].contains(Constants.COUNT_STUDENT)) {
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
 				char charArray[] = readLineFromFile(Constants.FILE_NAME).toCharArray();
 				int count = 0;
 				for (char character : charArray) {
@@ -61,7 +63,7 @@ public class StudentList {
 				}
 				count++;
 				System.out.println(count + Constants.WORD_COUNT_MESSAGE);
-				System.out.println(Constants.LOAD_DATA);
+				System.out.println(Constants.LOADING_DATA);
 			}
 		}
 
