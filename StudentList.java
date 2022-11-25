@@ -11,29 +11,24 @@ public class StudentList {
 		} else {
 			if (args[0].equals(Constants.SHOW_ALL)) {
 				System.out.println(Constants.LOAD_DATA);
-				String line = readLineFromFile(Constants.FILE_NAME);
-				String names[] = line.split(Constants.COMMA);
+				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				for (String name : names) {
 					System.out.println(name.trim());
 				}
 				System.out.println(Constants.LOAD_DATA);
 			} else if (args[0].equals("r")) {
 				System.out.println(Constants.DATA_LOADED);
-				String line = readLineFromFile(Constants.FILE_NAME);
-				String names[] = line.split(Constants.COMMA);
+				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				Random random = new Random();
-				int randomNumber = random.nextInt(4);
-				System.out.println(names[randomNumber].trim());
+				System.out.println(names[random.nextInt(4)].trim());
 				System.out.println(Constants.LOAD_DATA);
 			} else if (args[0].contains(Constants.ADD_STUDENT)) {
 				System.out.println(Constants.LOAD_DATA);
 				try {
 					BufferedWriter bufferedWriter = writeFile(Constants.FILE_NAME);
 					String newStudent = args[0].substring(1);
-					Date date = new Date();
-					String dateTimeFormat = Constants.DATE_TIME_FORMAT;
-					DateFormat dateFormat = new SimpleDateFormat(dateTimeFormat);
-					String dateToday = dateFormat.format(date);
+					DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_TIME_FORMAT);
+					String dateToday = dateFormat.format(new Date());
 					bufferedWriter.write(Constants.COMMA + newStudent + Constants.LIST_UPDATE_MESSAGE + dateToday);
 					System.out.println(newStudent + Constants.ADDED_MESSAGE);
 					bufferedWriter.close();
@@ -42,8 +37,7 @@ public class StudentList {
 				System.out.println(Constants.LOAD_DATA);
 			} else if (args[0].contains(Constants.FILE_NAME)) {
 				System.out.println(Constants.LOAD_DATA);
-				String line = readLineFromFile(Constants.FILE_NAME);
-				String names[] = line.split(Constants.COMMA);
+				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				boolean done = false;
 				String student = args[0].substring(1);
 				for (int index = 0; index < names.length && !done; index++) {
@@ -58,8 +52,7 @@ public class StudentList {
 				System.out.println(Constants.LOAD_DATA);
 			} else if (args[0].contains(Constants.COUNT_STUDENT)) {
 				System.out.println(Constants.LOAD_DATA);
-				String line = readLineFromFile(Constants.FILE_NAME);
-				char charArray[] = line.toCharArray();
+				char charArray[] = readLineFromFile(Constants.FILE_NAME).toCharArray();
 				int count = 0;
 				for (char character : charArray) {
 					if (character == ',') {
