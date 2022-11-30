@@ -82,3 +82,22 @@ public class StudentList {
 		}
 	}
 }
+
+
+/*
+
+try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt")));
+            String firstLine = br.readLine();
+            br.close();
+            FileWriter f = new FileWriter("students.txt");
+            PrintWriter p = new PrintWriter(f);
+            p.write("");
+            p.write(firstLine);
+            p.flush();
+            p.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	
+*/
