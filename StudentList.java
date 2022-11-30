@@ -8,8 +8,8 @@ public class StudentList {
 		// Check arguments
 		if (args.length != 1) { //Too many arguments
 			System.out.println(Constants.USAGE_MESSAGE); //Usage message
-		} else {
-			if (args[0].equals(Constants.SHOW_ALL)) { //Show all students of the list
+		} else {  // for a valid argument
+ 			if (args[0].equals(Constants.SHOW_ALL)) { //Show all students of the list
 				System.out.println(Constants.LOADING_DATA);
 				String names[] = readLineFromFile(Constants.FILE_NAME).split(Constants.COMMA);
 				for (String name : names) {
@@ -63,7 +63,8 @@ public class StudentList {
 		}
 
 	}
-
+	
+	// For reading from file
 	static String readLineFromFile(String fileName) { //File reader
 		try {
 			BufferedReader bufferedReader = new BufferedReader(
@@ -73,7 +74,8 @@ public class StudentList {
 			return null;
 		}
 	}
-
+	
+	// For writting something to file
 	static BufferedWriter writeFile(String fileName) { //File writer
 		try {
 			return new BufferedWriter(new FileWriter(fileName, true));
@@ -82,6 +84,7 @@ public class StudentList {
 		}
 	}
 }
+
 
 
 /*
